@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "motor_driver.h": "c",
+        "main.h": "c",
+        "cstddef": "c",
+        "string": "c",
+        "optional": "c",
+        "limits": "c",
+        "memory": "c",
+        "new": "c",
+        "functional": "c",
+        "type_traits": "c",
+        "istream": "c",
+        "streambuf": "c"
+    }
+}
