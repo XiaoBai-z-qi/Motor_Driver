@@ -11,6 +11,8 @@
         "functional": "c",
         "type_traits": "c",
         "istream": "c",
-        "streambuf": "c"
+        "streambuf": "c",
+        "tim.h": "c",
+        "usart.h": "c"
     }
 }
