@@ -622,6 +622,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>My_Drivers</GroupName>
+          <Files>
+            <File>
+              <FileName>Motor_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\My_Drivers\Src\Motor_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor_Driver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\My_Drivers\Inc\Motor_Driver.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
