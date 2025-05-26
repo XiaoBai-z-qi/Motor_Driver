@@ -51,5 +51,6 @@ void Motor_Speed(int Speed)
 void Motor_Init(void)
 {
     MOTOR_ENABLE();
-    Motor_Speed(0);
+	//HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+    Motor_Speed(10);
 }
