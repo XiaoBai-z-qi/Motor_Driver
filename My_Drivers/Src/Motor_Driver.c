@@ -3,8 +3,14 @@
 
 
 #define TIM_MOTOR &htim2
+#define TIM_ENCODERA &htim3
+#define TIM_ENCODERB &htim4
 #define PWMA_CHANNEL TIM_CHANNEL_1
 #define PWMB_CHANNEL TIM_CHANNEL_2
+#define E1A_CHANNEL TIM_CHANNEL_1
+#define E2A_CHANNEL TIM_CHANNEL_2
+#define E1B_CHANNEL TIM_CHANNEL_1
+#define E2B_CHANNEL TIM_CHANNEL_2
 
 void Set_MotorState(MotorState_t state)
 {
@@ -61,6 +67,8 @@ void Motor_Init(void)
     MOTOR_ENABLE();
 	HAL_TIM_PWM_Start(TIM_MOTOR, PWMA_CHANNEL);
 	HAL_TIM_PWM_Start(TIM_MOTOR, PWMB_CHANNEL);
+    HAL_TIM_Encoder_Start(TIM_ENCODERA, TIM_CHANNEL_ALL);
+    HAL_TIM_Encoder_Start(TIM_ENCODERB, TIM_CHANNEL_ALL);
 
     Motor_Speed(10);
 }
