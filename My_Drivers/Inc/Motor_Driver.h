@@ -13,6 +13,13 @@
 #define MOTOR_ENABLE()      HAL_GPIO_WritePin(STBY_GPIO_Port, STBY_Pin, GPIO_PIN_SET)
 #define MOTOR_DISABLE()     HAL_GPIO_WritePin(STBY_GPIO_Port, STBY_Pin, GPIO_PIN_RESET)
 
+
+#define TIM_MOTOR &htim2
+#define TIM_ENCODERA &htim3
+#define TIM_ENCODERB &htim4
+#define PWMA_CHANNEL TIM_CHANNEL_1
+#define PWMB_CHANNEL TIM_CHANNEL_2
+
 // 电机状态
 typedef enum
 {

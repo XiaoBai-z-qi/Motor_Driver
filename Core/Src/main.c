@@ -36,7 +36,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define TIMX_IT &htim6
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -62,6 +62,20 @@ int fputc(int ch, FILE *f) {
   (void)f;  // 忽略参数，避免警告
   HAL_UART_Transmit(&huart1, (const uint8_t *)&ch, 1, 500); // 发送一个字节
   return ch;
+}
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if(htim == TIMX_IT)
+  {
+    int32_t cnt1 = __HAL_TIM_GET_COUNTER(TIM_ENCODERA); // 获取计数器的值
+    int32_t cnt2 = __HAL_TIM_GET_COUNTER(TIM_ENCODERB); // 获取计数器的值
+
+    printf("%d,%d\r\n", cnt1, cnt2);
+    __HAL_TIM_SET_COUNTER(TIM_ENCODERA, 0); // 归零计数器
+    __HAL_TIM_SET_COUNTER(TIM_ENCODERB, 0); // 归零计数器
+  }
 }
 /* USER CODE END 0 */
 
@@ -98,7 +112,9 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(TIMX_IT);
   Motor_Init();
 
   /* USER CODE END 2 */
